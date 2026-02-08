@@ -39,3 +39,14 @@ p {
 	margin: 0;
 	margin-bottom: 1em;
 }
+
+.subtitle {
+	font-size: clamp(18px, 3vw, 20px);
+	font-weight: 600;
+}
+
+.text {
+	font-family: var(--secondary-font);
+	font-size: 16px;
+	font-weight: 400;
+}

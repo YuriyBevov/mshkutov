@@ -1,40 +1,55 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 <?
-$aMenuLinks = Array(
-	Array(
-		"Компания", 
-		"company/", 
-		Array(), 
-		Array(), 
-		"" 
+
+$aMenuLinks = array(
+	array(
+		"Обо мне",
+		"about/",
+		array(),
+		array(),
+		""
 	),
-	Array(
-		"Новости", 
-		"news/", 
-		Array(), 
-		Array(), 
-		"" 
+	array(
+		"Кейсы",
+		"cases/",
+		array(),
+		array(),
+		""
 	),
-	Array(
-		"Продукция", 
-		"products/", 
-		Array(), 
-		Array(), 
-		"" 
+	array(
+		"Преимущества",
+		"#features",
+		array(),
+		array(),
+		""
 	),
-	Array(
-		"Услуги", 
-		"services/", 
-		Array(), 
-		Array(), 
-		"" 
+	array(
+		"Услуги",
+		"services/",
+		array(),
+		array(),
+		""
 	),
-	Array(
-		"Контакты", 
-		"contacts/", 
-		Array(), 
-		Array(), 
-		"" 
+	array(
+		"Отзывы",
+		"#reviews",
+		array(),
+		array(),
+		""
+	),
+	array(
+		"Вопросы",
+		"#faq",
+		array(),
+		array(),
+		""
+	),
+	array(
+		"Контакты",
+		"contacts/",
+		array(),
+		array(),
+		""
 	)
 );
 ?>

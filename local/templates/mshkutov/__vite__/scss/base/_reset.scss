@@ -19,7 +19,6 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
-	scrollbar-gutter: stable;
 }
 
 * {
@@ -83,7 +82,7 @@ img {
 }
 
 a {
-	color: var(--dark);
+	color: var(--white);
 	text-decoration: none;
 	cursor: pointer;
 

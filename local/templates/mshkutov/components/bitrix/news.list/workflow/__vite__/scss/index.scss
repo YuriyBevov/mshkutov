@@ -1,0 +1,49 @@
+.workflow {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+
+	&__item {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		padding-right: 30px;
+
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding-top: 40px;
+
+		// &::before {
+		// 	position: absolute;
+		// 	top: -5px;
+		// 	left: 0;
+		// 	width: 20px;
+		// 	height: 20px;
+		// 	content: "";
+		// 	border-radius: 50%;
+		// 	color: var(--primary);
+		// 	background-color: var(--primary);
+		// }
+
+		&::before {
+			position: absolute;
+			top: -11px;
+			left: 0;
+			content: "";
+			display: block;
+			width: 21px;
+			height: 21px;
+			border-radius: 50%;
+
+			/* Красный бордер */
+			border: 2px solid var(--primary);
+
+			/* Синий фон с красным кругом в центре через радиальный градиент */
+			background: radial-gradient(
+				circle at center,
+				var(--primary) 1px,
+				var(--dark) 6px,
+				var(--dark) 100%
+			);
+		}
+	}
+}

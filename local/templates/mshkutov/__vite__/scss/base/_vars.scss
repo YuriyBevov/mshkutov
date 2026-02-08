@@ -14,7 +14,7 @@
 
 	--black: #000000;
 	--white: #ffffff;
-	--primary: #2b519d;
+	--primary: #8256eb;
 	--secondary: #f8f8f8;
 	--warning: #ffd83a;
 	--danger: #d50202;
@@ -53,5 +53,7 @@
 	--control-bg: var(--gray-800);
 	--control-border-radius: var(--base-br);
 
+	// base-vars
 	--base-padding: 24px;
+	--base-gap: 24px;
 }

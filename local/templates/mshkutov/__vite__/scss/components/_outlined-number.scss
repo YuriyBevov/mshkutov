@@ -1,0 +1,13 @@
+.outlined-number {
+	/* Делаем текст прозрачным */
+	color: transparent;
+	-webkit-text-fill-color: transparent; /* Для старых Safari */
+
+	/* Обводка символов */
+	-webkit-text-stroke-width: 2px; /* Толщина рамки */
+	-webkit-text-stroke-color: var(--primary); /* Цвет рамки */
+
+	font-family: var(--roboto-font);
+	font-size: 120px;
+	line-height: 1;
+}

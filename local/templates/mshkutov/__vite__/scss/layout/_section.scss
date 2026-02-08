@@ -1,0 +1,47 @@
+.section {
+	padding: clamp(20px, 4vw, 35px) 0;
+
+	&.bg-sphere {
+		background-image: url("/local/templates/mshkutov/public/sphere-bg.png");
+		background-size: 100%;
+		background-repeat: no-repeat;
+		background-position: bottom;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: clamp(40px, 5.2vw, 70px);
+	}
+
+	&__header {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		// outline: 1px solid red;
+
+		& * {
+			margin: 0;
+		}
+
+		&-wrapper {
+			display: flex;
+			align-items: center;
+			gap: var(--base-gap);
+		}
+	}
+
+	&__title {
+		font-size: clamp(30px, 4vw, 48px);
+		font-weight: 600;
+		color: var(--white);
+	}
+
+	&__desc {
+		font-family: var(--secondary-font);
+		width: 100%;
+		max-width: 600px;
+	}
+
+	// outline: 1px solid red;
+}

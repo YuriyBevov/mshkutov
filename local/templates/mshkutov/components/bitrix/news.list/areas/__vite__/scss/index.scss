@@ -1,0 +1,41 @@
+.areas {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--base-gap);
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		counter-increment: list-item 0;
+	}
+
+	.subtitle {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+
+		&::before {
+			position: relative;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 33px;
+			height: 33px;
+
+			font-size: 20px;
+			font-weight: 600;
+
+			counter-increment: list-item;
+			content: counter(list-item);
+
+			border-radius: 50%;
+			border: 1px solid var(--white);
+			background-color: var(--dark);
+			color: var(--white);
+		}
+	}
+}

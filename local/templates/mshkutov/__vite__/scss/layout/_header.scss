@@ -1,0 +1,26 @@
+.header {
+	.worktime,
+	.logo {
+		margin-right: auto;
+	}
+
+	&__top {
+		padding: 12px 0;
+		background-color: rgba(100, 101, 157, 18);
+	}
+
+	&__top .container,
+	&__bottom .container {
+		display: flex;
+		align-items: center;
+		gap: var(--base-gap);
+	}
+
+	&__bottom {
+		padding: 20px 0;
+
+		.row-menu {
+			margin: 0 clamp(12px, 5vw, 150px);
+		}
+	}
+}
