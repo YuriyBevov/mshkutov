@@ -1,0 +1,23 @@
+.features {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: clamp(32px, 3.2vw, 80px);
+
+	&__item {
+		display: flex;
+		gap: 16px;
+
+		&-wrapper {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+		}
+
+		img {
+			height: 54px;
+			width: fit-content;
+			object-fit: contain;
+			object-position: left;
+		}
+	}
+}

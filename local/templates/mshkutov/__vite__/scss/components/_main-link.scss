@@ -1,0 +1,41 @@
+@use "@scss/extends/index";
+.main-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	max-width: fit-content;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 600;
+
+	color: var(--white);
+	cursor: pointer;
+
+	@extend %hover-opacity;
+
+	&.iconed {
+		position: relative;
+		gap: 8px;
+
+		&::after {
+			position: relative;
+			top: 2px;
+			width: 24px;
+			height: 24px;
+			content: "";
+			background-image: url("@img/arrow-long.svg");
+			background-repeat: no-repeat;
+			background-size: contain;
+			transition: transform var(--main-transition);
+		}
+
+		&:hover::after {
+			transform: translateX(3px);
+		}
+	}
+
+	&.align-center {
+		margin: 0 auto;
+	}
+}

@@ -2,8 +2,10 @@
 $this->setFrameMode(true);
 ?>
 
-<? if ($arResult["ITEMS"]): ?>
-  <section class="section bg-sphere">
+<? if ($arResult["ITEMS"]):
+  $bgImage = CFile::GetPath($arResult["PICTURE"]);
+?>
+  <section class="section">
     <div class="container">
       <div class="section__header">
         <div class="section__header-wrapper">
@@ -15,20 +17,25 @@ $this->setFrameMode(true);
         <? endif; ?>
       </div>
 
-      <div class="areas">
+      <div class="stack">
         <? foreach ($arResult["ITEMS"] as $index => $arItem):
+
           $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
           $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 
+          $icon = CFile::GetPath($arItem["PROPERTIES"]["ICON"]["VALUE"]);
+          if ($icon):
         ?>
-          <div class="areas__item animate-border" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-            <span class="subtitle"><?= $arItem["NAME"] ?></span>
-            <span class="areas__item-text"><?= $arItem["PREVIEW_TEXT"] ?></span>
-          </div>
-        <? endforeach; ?>
+            <div class="stack__item animate-border" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+              <img src="<?= $icon ?>" alt="Иконка" width="200" height="52">
+              <span class="text"><?= $arItem["PREVIEW_TEXT"] ?></span>
+              <? if ($arItem["CODE"]): ?>
+                <a href="<?= $arItem["CODE"] ?>" class="main-link iconed">Подробнее</a>
+              <? endif; ?>
+            </div>
+        <? endif;
+        endforeach; ?>
       </div>
-
-
     </div>
   </section>
 <? endif; ?>

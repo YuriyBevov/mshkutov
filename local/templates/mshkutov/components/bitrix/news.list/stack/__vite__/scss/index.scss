@@ -1,0 +1,24 @@
+.stack {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px;
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		img {
+			height: fit-content;
+			max-height: 52px;
+			width: fit-content;
+			max-width: 200px;
+			object-fit: contain;
+			object-position: left;
+		}
+
+		.main-link {
+			margin-top: auto;
+		}
+	}
+}

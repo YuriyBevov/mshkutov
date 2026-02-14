@@ -1,11 +1,11 @@
 .animate-border {
 	position: relative;
 	border-radius: 30px;
-	// padding: var(--base-gap);
 	z-index: 1;
 
-	padding: var(--base-gap);
+	padding: 30px;
 	background-color: rgba(12, 13, 37, 0.6);
+	overflow: hidden;
 
 	&::before {
 		content: "";
@@ -27,7 +27,6 @@
 		-webkit-mask-composite: xor;
 		mask-composite: exclude;
 
-		// z-index: -1;
 		pointer-events: none;
 	}
 }
@@ -43,46 +42,3 @@
 	initial-value: 0deg;
 	inherits: false;
 }
-
-// Второй рабочий вариант
-
-// .animate-border {
-// 	position: relative;
-// 	width: 100%;
-// 	height: 100%;
-// 	overflow: hidden;
-// 	border-radius: 30px;
-// 	background: linear-gradient(var(--angle), #0d0e26, #384479);
-// 	animation: 10s rotate linear infinite;
-// }
-
-// .animate-border::before {
-// 	position: absolute;
-
-// 	content: "";
-// 	background: var(--dark);
-// 	width: calc(100% - 2px);
-// 	height: calc(100% - 2px);
-// 	top: 1px;
-// 	left: 1px;
-// 	border-radius: 30px;
-// 	overflow: hidden;
-// 	z-index: 0;
-// }
-
-// .animate-border > * {
-// 	position: relative;
-// 	z-index: 1;
-// }
-
-// @keyframes rotate {
-// 	to {
-// 		--angle: 360deg;
-// 	}
-// }
-
-// @property --angle {
-// 	syntax: "<angle>";
-// 	initial-value: 0deg;
-// 	inherits: false;
-// }
