@@ -1,2 +1,27 @@
 .about-preview .grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--base-gap);
+
+	padding: 60px 70px 50px;
+	border-radius: 45px;
+	background-color: rgba(12, 13, 37, 0.6);
+}
+
+.about-preview .section__title {
+	margin: 0;
+	margin-bottom: 16px;
+}
+
+.about-preview .grid::before {
+	border-radius: 45px;
+}
+
+.about-preview .grid__item {
+	display: flex;
+	flex-direction: column;
+}
+
+.about-preview .main-link {
+	margin-top: auto;
 }
