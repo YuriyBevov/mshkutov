@@ -1,0 +1,17 @@
+.base-card {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	img {
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+		border-radius: var(--base-br);
+	}
+
+	&__detail-link {
+		margin-top: auto;
+		padding-top: 12px;
+	}
+}

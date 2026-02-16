@@ -1,12 +1,20 @@
 .section {
 	padding: clamp(20px, 4vw, 35px) 0;
 
-	&.bg-sphere {
-		background-image: url("/local/templates/mshkutov/public/sphere-bg.png");
-		background-size: 100%;
-		background-repeat: no-repeat;
-		background-position: bottom;
-	}
+	// &.bg-sphere {
+	// 	background-image: url("/local/templates/mshkutov/public/sphere-bg.png");
+	// 	background-size: 100%;
+	// 	background-repeat: no-repeat;
+	// 	background-position: bottom;
+
+	// 	&--left {
+	// 		background-position: 50% 50%;
+	// 	}
+
+	// 	&--right {
+	// 		background-position: -50% 50%;
+	// 	}
+	// }
 
 	.container {
 		display: flex;

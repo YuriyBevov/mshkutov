@@ -1,0 +1,13 @@
+.swiper {
+	width: 100%;
+
+	.swiper-slide {
+		width: 100%;
+		max-width: fit-content;
+
+		.base-card {
+			width: 100%;
+			// max-width: 400px;
+		}
+	}
+}
