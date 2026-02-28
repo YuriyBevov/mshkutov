@@ -1,1 +1,1 @@
-.approach{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--base-gap)}
+.approach-container{container:approach/inline-size}.approach{display:grid;grid-template-columns:1fr;gap:var(--base-gap)}@container approach (min-width: 640px){.approach{grid-template-columns:repeat(2,1fr)}}@container approach (min-width: 960px){.approach{grid-template-columns:repeat(4,1fr)}}

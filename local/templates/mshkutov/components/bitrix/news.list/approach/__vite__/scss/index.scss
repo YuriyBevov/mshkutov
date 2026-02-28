@@ -1,5 +1,19 @@
+@use "@scss/base/container-queries" as *;
+
 .approach {
+	&-container {
+		container: approach / inline-size;
+	}
+
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: 1fr;
 	gap: var(--base-gap);
+
+	@include container-up(approach, 640px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include container-up(approach, 960px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
 }

@@ -1,7 +1,21 @@
+@use "@scss/base/container-queries" as *;
+
 .features {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: 1fr;
 	gap: clamp(32px, 3.2vw, 80px);
+
+	&-container {
+		container: features / inline-size;
+	}
+
+	@include container-up(features, 620px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include container-up(features, 1024px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
 
 	&__item {
 		display: flex;

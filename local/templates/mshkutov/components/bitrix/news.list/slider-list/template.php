@@ -1,20 +1,21 @@
 <? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 $this->setFrameMode(true);
-$APPLICATION->AddHeadScript($templateFolder . "/custom_script.js");
+// скрипт слайдера подключается в component_epilog, чтобы избежать проблем с кэшем
 ?>
 
 <? if ($arResult["ITEMS"]): ?>
   <section class="section">
     <div class="container">
-      <div class="section__header">
-        <div class="section__header-wrapper">
-          <h2 class="section__title"><?= $arResult["NAME"] ?></h2>
-        </div>
-
-        <? if ($arResult["DESCRIPTION"]): ?>
-          <p class="section__desc"><?= $arResult["DESCRIPTION"] ?></p>
-        <? endif; ?>
-      </div>
+      <?
+      $APPLICATION->IncludeFile(
+        SITE_TEMPLATE_PATH . '/include/section-header.php',
+        array(
+          'TITLE' => $arResult["NAME"],
+          'DESCRIPTION' => $arResult["DESCRIPTION"],
+        ),
+        array('MODE' => 'html', 'NAME' => 'шапку раздела', 'SHOW_BORDER' => false)
+      );
+      ?>
 
       <div class="swiper">
         <div class="swiper-wrapper">
@@ -31,9 +32,6 @@ $APPLICATION->AddHeadScript($templateFolder . "/custom_script.js");
               ["CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')]
             );
           ?>
-
-
-
             <div class="swiper-slide base-card-container" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
               <? $APPLICATION->IncludeComponent(
                 "bitrix:news.detail",
@@ -53,7 +51,7 @@ $APPLICATION->AddHeadScript($templateFolder . "/custom_script.js");
                   "CACHE_TIME" => "36000000",
                   "CACHE_TYPE" => "A",
                   "CHECK_DATES" => "Y",
-                  "COMPONENT_TEMPLATE" => ".default",
+                  "COMPONENT_TEMPLATE" => "base-card",
                   "DETAIL_URL" => "",
                   "DISPLAY_BOTTOM_PAGER" => "N",
                   "DISPLAY_DATE" => "N",
@@ -63,7 +61,11 @@ $APPLICATION->AddHeadScript($templateFolder . "/custom_script.js");
                   "DISPLAY_TOP_PAGER" => "N",
                   "ELEMENT_CODE" => "",
                   "ELEMENT_ID" => $arItem["ID"],
-                  "FIELD_CODE" => array(0 => "PREVIEW_PICTURE", 1 => "",),
+                  "FIELD_CODE" => array(
+                    0 => "PREVIEW_PICTURE",
+                    1 => "DATE_ACTIVE_FROM",
+                    2 => "",
+                  ),
                   "IBLOCK_ID" => $arResult["ID"],
                   "IBLOCK_TYPE" => "site_content",
                   "IBLOCK_URL" => "",
@@ -75,7 +77,10 @@ $APPLICATION->AddHeadScript($templateFolder . "/custom_script.js");
                   "PAGER_SHOW_ALL" => "N",
                   "PAGER_TEMPLATE" => ".default",
                   "PAGER_TITLE" => "Страница",
-                  "PROPERTY_CODE" => array(0 => "", 1 => "",),
+                  "PROPERTY_CODE" => array(
+                    0 => "",
+                    1 => "READING_TIME",
+                  ),
                   "SET_BROWSER_TITLE" => "N",
                   "SET_CANONICAL_URL" => "N",
                   "SET_LAST_MODIFIED" => "N",
@@ -87,7 +92,8 @@ $APPLICATION->AddHeadScript($templateFolder . "/custom_script.js");
                   "STRICT_SECTION_CHECK" => "N",
                   "USE_PERMISSIONS" => "N",
                   "USE_SHARE" => "N"
-                )
+                ),
+                false
               ); ?>
             </div>
           <? endforeach; ?>

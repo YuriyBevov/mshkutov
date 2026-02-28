@@ -1,28 +1,31 @@
+@use "@scss/base/container-queries" as *;
+
 .workflow {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: 1fr;
+
+	&-container {
+		container: workflow/ inline-size;
+	}
+
+	@include container-up(workflow, 620px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include container-up(workflow, 1024px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
 
 	&__item {
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
-		padding-right: 30px;
 
 		border-top: 1px solid rgba(255, 255, 255, 0.1);
-		padding-top: 40px;
 
-		// &::before {
-		// 	position: absolute;
-		// 	top: -5px;
-		// 	left: 0;
-		// 	width: 20px;
-		// 	height: 20px;
-		// 	content: "";
-		// 	border-radius: 50%;
-		// 	color: var(--primary);
-		// 	background-color: var(--primary);
-		// }
+		padding: 40px 30px;
+		padding-left: 0;
 
 		&::before {
 			position: absolute;

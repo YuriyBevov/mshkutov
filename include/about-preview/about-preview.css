@@ -1,11 +1,21 @@
+.about-preview {
+	container: about-preview / inline-size;
+}
+
 .about-preview .grid {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: 1fr;
 	gap: var(--base-gap);
 
-	padding: 60px 70px 50px;
-	border-radius: 45px;
+	padding: clamp(30px, 3.2vw, 60px) clamp(20px, 3.2vw, 70px);
+	border-radius: clamp(20px, 3.2vw, 45px);
 	background-color: rgba(12, 13, 37, 0.6);
+}
+
+@container about-preview (min-width: 620px) {
+	.about-preview .grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 .about-preview .section__title {
@@ -14,7 +24,7 @@
 }
 
 .about-preview .grid::before {
-	border-radius: 45px;
+	border-radius: clamp(20px, 3.2vw, 45px);
 }
 
 .about-preview .grid__item {

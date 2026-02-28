@@ -1,7 +1,17 @@
+@use "@scss/base/container-queries" as *;
+
 .performance {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: 1fr;
 	gap: clamp(20px, 3vw, 60px);
+
+	&-container {
+		container: performance / inline-size;
+	}
+
+	@include container-up(performance, 840px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
 
 	&__image-wrapper {
 		&.animate-border {
@@ -18,11 +28,16 @@
 	}
 
 	&__content-wrapper {
+		container: performance-grid / inline-size;
 		.grid {
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: 1fr;
 			gap: var(--base-gap);
 			height: 100%;
+
+			@include container-up(performance-grid, 540px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
 		}
 	}
 
