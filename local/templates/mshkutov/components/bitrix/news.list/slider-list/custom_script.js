@@ -1,1 +1,1 @@
-const s=document.querySelectorAll(".swiper");s&&s.forEach(e=>{new Swiper(e,{slidesPerView:1,spaceBetween:24,breakpoints:{620:{slidesPerView:2},1024:{slidesPerView:e.classList.contains("sale-preview-slider")?2:3}}})});
+const s=document.querySelectorAll(".slider-section .swiper");s&&s.forEach(e=>{new Swiper(e,{slidesPerView:1,spaceBetween:24,breakpoints:{620:{slidesPerView:2},1024:{slidesPerView:e.classList.contains("sale-preview-slider")?2:3}}})});

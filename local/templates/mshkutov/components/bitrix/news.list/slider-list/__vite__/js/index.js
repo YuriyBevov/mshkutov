@@ -1,4 +1,4 @@
-const sliders = document.querySelectorAll(".swiper");
+const sliders = document.querySelectorAll(".slider-section .swiper");
 
 if (sliders) {
 	sliders.forEach((slider) => {

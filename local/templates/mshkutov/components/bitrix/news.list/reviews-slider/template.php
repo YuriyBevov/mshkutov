@@ -4,7 +4,7 @@ $this->setFrameMode(true);
 ?>
 
 <? if ($arResult["ITEMS"]): ?>
-  <section class="section slider-section">
+  <section class="section">
     <div class="container">
       <?
       $APPLICATION->IncludeFile(
@@ -16,7 +16,7 @@ $this->setFrameMode(true);
         array('MODE' => 'html', 'NAME' => 'шапку раздела', 'SHOW_BORDER' => false)
       );
       ?>
-      <div class="swiper <?= $arParams["CUSTOM_PARAMS"]["SLIDER_CLASS"] ?? '' ?>">
+      <div class="swiper reviews-slider">
         <div class="swiper-wrapper">
           <? foreach ($arResult["ITEMS"] as $index => $arItem):
             $this->AddEditAction(
@@ -32,15 +32,11 @@ $this->setFrameMode(true);
             );
           ?>
             <div class="swiper-slide base-card-container" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
-
               <? $APPLICATION->IncludeComponent(
                 "bitrix:news.detail",
-                "base-card",
+                "review-card",
                 array(
                   "ANIMATE_BORDER" => $arParams["CUSTOM_PARAMS"]["BASE_CARD_ANIMATE_BORDER"] ?? 'N',
-                  "FILLED_BG" => $arParams["CUSTOM_PARAMS"]["BASE_CARD_FILLED_BG"] ?? 'N',
-
-
                   "ACTIVE_DATE_FORMAT" => "d.m.Y",
                   "ADD_ELEMENT_CHAIN" => "N",
                   "ADD_SECTIONS_CHAIN" => "N",
@@ -94,7 +90,7 @@ $this->setFrameMode(true);
                   "SHOW_404" => "N",
                   "STRICT_SECTION_CHECK" => "N",
                   "USE_PERMISSIONS" => "N",
-                  "USE_SHARE" => "N",
+                  "USE_SHARE" => "N"
                 ),
                 $component,
                 array("HIDE_ICONS" => $index > 0 ?? "Y")

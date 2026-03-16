@@ -1,0 +1,27 @@
+.review-card {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	&__rate {
+		display: flex;
+		align-items: center;
+		svg {
+			fill: var(--warning);
+		}
+	}
+
+	&__note {
+		display: flex;
+		flex-direction: column;
+		gap: 4px 24px;
+
+		small {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 14px;
+			color: var(--muted);
+		}
+	}
+}
