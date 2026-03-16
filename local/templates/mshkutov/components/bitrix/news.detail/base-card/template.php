@@ -3,7 +3,7 @@ $this->setFrameMode(true);
 ?>
 
 <? if ($arResult): ?>
-  <div class="base-card <?= $arParams["ANIMATE_BORDER"] === "Y" ? 'animate-border' : '' ?>">
+  <div class="base-card<?= $arParams["ANIMATE_BORDER"] === "Y" ? ' animate-border' : '' ?><?= $arParams["FILLED_BG"] === "Y" ? ' --filled-bg' : '' ?>">
     <img src="<?= $arResult["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="290" height="160">
 
     <? if ($arResult["DISPLAY_ACTIVE_FROM"] || $arResult["PROPERTIES"]["READING_TIME"]["VALUE"]): ?>

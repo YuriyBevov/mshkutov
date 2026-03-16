@@ -1,0 +1,13 @@
+.callback-form {
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	&__header {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+}

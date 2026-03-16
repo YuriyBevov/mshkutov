@@ -1,6 +1,6 @@
 .animate-border {
 	position: relative;
-	border-radius: 30px;
+	border-radius: var(--base-br);
 	z-index: 1;
 
 	padding: 30px;
@@ -11,7 +11,7 @@
 		content: "";
 		position: absolute;
 		inset: 0;
-		border-radius: 30px;
+		border-radius: var(--base-br);
 		padding: 1px; /* Толщина бордера */
 		background: linear-gradient(var(--angle), #0d0e26, #384479);
 		--angle: 0deg;

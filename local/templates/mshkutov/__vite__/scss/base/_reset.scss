@@ -123,3 +123,10 @@ ul,
 ol {
 	clear: both;
 }
+
+*.--filled-bg {
+	background:
+		linear-gradient(87.44deg, #8256eb 7.07%, #3328b4 95.52%),
+		linear-gradient(293.14deg, #43cbd5 10.27%, #0894da 89.03%),
+		rgba(12, 13, 37, 0.6);
+}

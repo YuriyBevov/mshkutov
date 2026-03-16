@@ -1,0 +1,15 @@
+.contacts {
+	.grid {
+		display: grid;
+		grid-template-columns: 2fr 3fr;
+		gap: var(--base-gap);
+		padding: 48px;
+		border-radius: 45px;
+
+		&__item {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+		}
+	}
+}

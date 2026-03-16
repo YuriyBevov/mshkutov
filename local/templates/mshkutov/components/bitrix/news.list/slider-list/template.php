@@ -16,8 +16,7 @@ $this->setFrameMode(true);
         array('MODE' => 'html', 'NAME' => 'шапку раздела', 'SHOW_BORDER' => false)
       );
       ?>
-
-      <div class="swiper">
+      <div class="swiper <?= $arParams["CUSTOM_PARAMS"]["SLIDER_CLASS"] ?? '' ?>">
         <div class="swiper-wrapper">
           <? foreach ($arResult["ITEMS"] as $index => $arItem):
             $this->AddEditAction(
@@ -37,7 +36,8 @@ $this->setFrameMode(true);
                 "bitrix:news.detail",
                 "base-card",
                 array(
-                  "ANIMATE_BORDER" => "Y",
+                  "ANIMATE_BORDER" => $arParams["CUSTOM_PARAMS"]["BASE_CARD_ANIMATE_BORDER"] ?? 'N',
+                  "FILLED_BG" => $arParams["CUSTOM_PARAMS"]["BASE_CARD_FILLED_BG"] ?? 'N',
                   "ACTIVE_DATE_FORMAT" => "d.m.Y",
                   "ADD_ELEMENT_CHAIN" => "N",
                   "ADD_SECTIONS_CHAIN" => "N",
@@ -52,7 +52,7 @@ $this->setFrameMode(true);
                   "CACHE_TYPE" => "A",
                   "CHECK_DATES" => "Y",
                   "COMPONENT_TEMPLATE" => "base-card",
-                  "DETAIL_URL" => "",
+                  "DETAIL_URL" => $arItem["DETAIL_PAGE_URL"],
                   "DISPLAY_BOTTOM_PAGER" => "N",
                   "DISPLAY_DATE" => "N",
                   "DISPLAY_NAME" => "Y",

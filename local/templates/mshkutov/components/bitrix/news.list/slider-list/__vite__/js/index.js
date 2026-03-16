@@ -10,7 +10,9 @@ if (sliders) {
 					slidesPerView: 2,
 				},
 				1024: {
-					slidesPerView: 3,
+					slidesPerView: slider.classList.contains("sale-preview-slider")
+						? 2
+						: 3,
 				},
 			},
 		});

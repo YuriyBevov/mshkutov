@@ -4,9 +4,41 @@
 		margin-right: auto;
 	}
 
+	.worktime {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		svg {
+			fill: var(--white);
+		}
+	}
+
+	.contacts-row {
+		display: flex;
+		align-items: center;
+		gap: 3px;
+
+		* {
+			padding: 0 12px;
+		}
+
+		a:not(:last-child) {
+			position: relative;
+			&::after {
+				position: absolute;
+				top: 0;
+				right: -2px;
+				content: "";
+				width: 1px;
+				height: 100%;
+				background-color: rgba(245, 245, 245, 0.5);
+			}
+		}
+	}
+
 	&__top {
 		padding: 12px 0;
-		background-color: rgba(100, 101, 157, 18);
+		background-color: rgba(100, 101, 157, 0.18);
 	}
 
 	&__top .container,

@@ -1,10 +1,10 @@
 @use "@scss/base/container-queries" as *;
 
 .footer {
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
 	.container {
 		padding-top: 20px;
 		padding-bottom: 60px;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
 	}
 
 	&__row {
@@ -20,6 +20,19 @@
 
 		ul {
 			justify-content: space-between;
+		}
+	}
+
+	.contacts-row {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: space-evenly;
+		gap: 24px;
+
+		* {
+			padding: 0 12px;
+			font-weight: 600;
 		}
 	}
 }
