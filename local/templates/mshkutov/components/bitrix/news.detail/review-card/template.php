@@ -12,7 +12,6 @@ $this->setFrameMode(true);
       <? endfor; ?>
     </div>
 
-
     <span class="text"><?= $arResult["PREVIEW_TEXT"] ?></span>
 
     <span class="subtitle"><?= $arResult["NAME"] ?></span>

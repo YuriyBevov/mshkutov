@@ -1,7 +1,12 @@
+div:has(.base-card) {
+	height: 100%;
+}
+
 .base-card {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+	height: 100%;
 
 	img {
 		width: 100%;

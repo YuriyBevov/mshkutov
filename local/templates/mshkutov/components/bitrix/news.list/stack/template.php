@@ -27,7 +27,7 @@ $this->setFrameMode(true);
             $icon = CFile::GetPath($arItem["PROPERTIES"]["ICON"]["VALUE"]);
             if ($icon):
           ?>
-              <div class="stack__item animate-border" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+              <div class="stack__item --animate-border" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
                 <img src="<?= $icon ?>" alt="Иконка" width="200" height="52">
                 <span class="text"><?= $arItem["PREVIEW_TEXT"] ?></span>
                 <? if ($arItem["CODE"]): ?>

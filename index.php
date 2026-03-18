@@ -4,25 +4,20 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
 ?>
 
 <? if ($USER->isAdmin()): ?>
-  <?
+  <?/*
   $APPLICATION->IncludeFile(
     SITE_DIR . 'include/about-preview/about-preview.php',
     array(),
     array('MODE' => 'html', 'NAME' => 'надпись над заголовком', 'SHOW_BORDER' => true)
   );
-  ?>
+  */ ?>
 
   <!-- sale preview -->
   <?
   $APPLICATION->IncludeComponent(
     "bitrix:news.list",
-    "slider-list",
+    "base-card-list",
     [
-      "CUSTOM_PARAMS" => [
-        "SLIDER_CLASS" => "sale-preview-slider",
-        "BASE_CARD_FILLED_BG" => "Y",
-        "BASE_CARD_ANIMATE_BORDER" => "Y"
-      ],
       "ACTIVE_DATE_FORMAT" => "d.m.Y",
       "ADD_SECTIONS_CHAIN" => "N",
       "AJAX_MODE" => "N",
@@ -35,7 +30,7 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "CACHE_TIME" => "36000000",
       "CACHE_TYPE" => "A",
       "CHECK_DATES" => "Y",
-      "DETAIL_URL" => "",
+      "DETAIL_URL" => "/sale/#ELEMENT_CODE#/",
       "DISPLAY_BOTTOM_PAGER" => "N",
       "DISPLAY_DATE" => "N",
       "DISPLAY_NAME" => "N",
@@ -67,7 +62,6 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "PROPERTY_CODE" => [
         0 => "",
         1 => "",
-        2 => "",
       ],
       "SET_BROWSER_TITLE" => "N",
       "SET_LAST_MODIFIED" => "N",
@@ -81,7 +75,20 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "SORT_ORDER1" => "DESC",
       "SORT_ORDER2" => "ASC",
       "STRICT_SECTION_CHECK" => "N",
-      "COMPONENT_TEMPLATE" => "sale-preview"
+      "COMPONENT_TEMPLATE" => "base-card-list",
+      "BASE_CARD_ANIMATE_BORDER" => "Y",
+      "BASE_CARD_FILLED_BG" => "Y",
+      "SLIDER_CLASS" => "sale-preview-slider",
+      "USE_SLIDER" => "Y",
+      "SLIDER_DESKTOP_VIEW" => "2",
+      "SLIDER_TABLET_VIEW" => "2",
+      "SLIDER_MOBILE_VIEW" => "auto",
+      "SLIDES_DESKTOP_VIEW_COUNT" => "2",
+      "SLIDES_TABLET_VIEW_COUNT" => "2",
+      "SLIDES_MOBILE_VIEW_COUNT" => "1",
+      "BASE_CARD_PICTURE_USE_DEFAULT" => "N",
+      "BASE_CARD_USE_NUMERIC_TITLES" => "Y",
+      "SHOW_FORM_OPENER_BTN" => "N"
     ],
     $component
   ); ?>
@@ -158,8 +165,8 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
   <!-- areas -->
   <? $APPLICATION->IncludeComponent(
     "bitrix:news.list",
-    "areas",
-    array(
+    "base-card-list",
+    [
       "ACTIVE_DATE_FORMAT" => "d.m.Y",
       "ADD_SECTIONS_CHAIN" => "N",
       "AJAX_MODE" => "N",
@@ -172,7 +179,7 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "CACHE_TIME" => "36000000",
       "CACHE_TYPE" => "A",
       "CHECK_DATES" => "Y",
-      "COMPONENT_TEMPLATE" => ".default",
+      "COMPONENT_TEMPLATE" => "base-card-list",
       "DETAIL_URL" => "",
       "DISPLAY_BOTTOM_PAGER" => "N",
       "DISPLAY_DATE" => "N",
@@ -180,7 +187,10 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "DISPLAY_PICTURE" => "N",
       "DISPLAY_PREVIEW_TEXT" => "Y",
       "DISPLAY_TOP_PAGER" => "N",
-      "FIELD_CODE" => array(0 => "", 1 => "",),
+      "FIELD_CODE" => [
+        0 => "",
+        1 => "",
+      ],
       "FILTER_NAME" => "",
       "HIDE_LINK_WHEN_NO_DETAIL" => "N",
       "IBLOCK_ID" => "17",
@@ -199,7 +209,10 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "PARENT_SECTION" => "",
       "PARENT_SECTION_CODE" => "",
       "PREVIEW_TRUNCATE_LEN" => "",
-      "PROPERTY_CODE" => array(0 => "", 1 => "",),
+      "PROPERTY_CODE" => [
+        0 => "",
+        1 => "",
+      ],
       "SET_BROWSER_TITLE" => "N",
       "SET_LAST_MODIFIED" => "N",
       "SET_META_DESCRIPTION" => "N",
@@ -211,16 +224,24 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "SORT_BY2" => "SORT",
       "SORT_ORDER1" => "DESC",
       "SORT_ORDER2" => "ASC",
-      "STRICT_SECTION_CHECK" => "N"
-    )
+      "STRICT_SECTION_CHECK" => "N",
+      "BASE_CARD_ANIMATE_BORDER" => "Y",
+      "BASE_CARD_FILLED_BG" => "N",
+      "USE_SLIDER" => "N",
+      "SHOW_FORM_OPENER_BTN" => "N",
+      "BASE_CARD_PICTURE_USE_DEFAULT" => "N",
+      "BASE_CARD_USE_NUMERIC_TITLES" => "Y",
+      "GRID_DESKTOP_VIEW_COUNT" => "3"
+    ],
+    false
   ); ?>
   <!-- areas end -->
 
   <!-- approach -->
   <? $APPLICATION->IncludeComponent(
     "bitrix:news.list",
-    "approach",
-    array(
+    "base-card-list",
+    [
       "ACTIVE_DATE_FORMAT" => "d.m.Y",
       "ADD_SECTIONS_CHAIN" => "N",
       "AJAX_MODE" => "N",
@@ -233,7 +254,7 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "CACHE_TIME" => "36000000",
       "CACHE_TYPE" => "A",
       "CHECK_DATES" => "Y",
-      "COMPONENT_TEMPLATE" => ".default",
+      "COMPONENT_TEMPLATE" => "base-card-list",
       "DETAIL_URL" => "",
       "DISPLAY_BOTTOM_PAGER" => "N",
       "DISPLAY_DATE" => "N",
@@ -241,7 +262,10 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "DISPLAY_PICTURE" => "N",
       "DISPLAY_PREVIEW_TEXT" => "Y",
       "DISPLAY_TOP_PAGER" => "N",
-      "FIELD_CODE" => array(0 => "", 1 => "",),
+      "FIELD_CODE" => [
+        0 => "",
+        1 => "",
+      ],
       "FILTER_NAME" => "",
       "HIDE_LINK_WHEN_NO_DETAIL" => "N",
       "IBLOCK_ID" => "11",
@@ -260,7 +284,10 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "PARENT_SECTION" => "",
       "PARENT_SECTION_CODE" => "",
       "PREVIEW_TRUNCATE_LEN" => "",
-      "PROPERTY_CODE" => array(0 => "", 1 => "",),
+      "PROPERTY_CODE" => [
+        0 => "",
+        1 => "",
+      ],
       "SET_BROWSER_TITLE" => "N",
       "SET_LAST_MODIFIED" => "N",
       "SET_META_DESCRIPTION" => "N",
@@ -272,9 +299,17 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "SORT_BY2" => "SORT",
       "SORT_ORDER1" => "DESC",
       "SORT_ORDER2" => "ASC",
-      "STRICT_SECTION_CHECK" => "N"
-    )
-  ); ?>
+      "STRICT_SECTION_CHECK" => "N",
+      "BASE_CARD_ANIMATE_BORDER" => "N",
+      "BASE_CARD_FILLED_BG" => "N",
+      "USE_SLIDER" => "N",
+      "BASE_CARD_PICTURE_USE_DEFAULT" => "N",
+      "BASE_CARD_USE_NUMERIC_TITLES" => "N",
+      "GRID_DESKTOP_VIEW_COUNT" => "4",
+      "SHOW_FORM_OPENER_BTN" => "N"
+    ],
+    false
+  );  ?>
   <!-- approach end -->
 
   <!-- performance -->
@@ -410,10 +445,10 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "COMPONENT_TEMPLATE" => "features"
     ),
     false
-  ); ?>
+  );  ?>
   <!-- features end -->
 
-  <!-- features -->
+  <!-- stack -->
   <? $APPLICATION->IncludeComponent(
     "bitrix:news.list",
     "stack",
@@ -482,16 +517,13 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
     ),
     false
   ); ?>
-  <!-- features end -->
+  <!-- stack end -->
 
   <!-- cases -->
   <? $APPLICATION->IncludeComponent(
     "bitrix:news.list",
-    "slider-list",
-    array(
-      "CUSTOM_PARAMS" => [
-        "BASE_CARD_ANIMATE_BORDER" => "Y"
-      ],
+    "base-card-list",
+    [
       "ACTIVE_DATE_FORMAT" => "d.m.Y",
       "ADD_SECTIONS_CHAIN" => "N",
       "AJAX_MODE" => "N",
@@ -504,7 +536,7 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "CACHE_TIME" => "36000000",
       "CACHE_TYPE" => "A",
       "CHECK_DATES" => "Y",
-      "COMPONENT_TEMPLATE" => "slider-list",
+      "COMPONENT_TEMPLATE" => "base-card-list",
       "DETAIL_URL" => "",
       "DISPLAY_BOTTOM_PAGER" => "N",
       "DISPLAY_DATE" => "N",
@@ -512,10 +544,10 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "DISPLAY_PICTURE" => "N",
       "DISPLAY_PREVIEW_TEXT" => "Y",
       "DISPLAY_TOP_PAGER" => "N",
-      "FIELD_CODE" => array(
+      "FIELD_CODE" => [
         0 => "",
         1 => "",
-      ),
+      ],
       "FILTER_NAME" => "",
       "HIDE_LINK_WHEN_NO_DETAIL" => "N",
       "IBLOCK_ID" => "6",
@@ -534,10 +566,10 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "PARENT_SECTION" => "",
       "PARENT_SECTION_CODE" => "",
       "PREVIEW_TRUNCATE_LEN" => "",
-      "PROPERTY_CODE" => array(
+      "PROPERTY_CODE" => [
         0 => "",
         1 => "",
-      ),
+      ],
       "SET_BROWSER_TITLE" => "N",
       "SET_LAST_MODIFIED" => "N",
       "SET_META_DESCRIPTION" => "N",
@@ -549,8 +581,17 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "SORT_BY2" => "SORT",
       "SORT_ORDER1" => "DESC",
       "SORT_ORDER2" => "ASC",
-      "STRICT_SECTION_CHECK" => "N"
-    ),
+      "STRICT_SECTION_CHECK" => "N",
+      "BASE_CARD_ANIMATE_BORDER" => "Y",
+      "BASE_CARD_FILLED_BG" => "N",
+      "USE_SLIDER" => "Y",
+      "SLIDES_DESKTOP_VIEW_COUNT" => "3",
+      "SLIDES_TABLET_VIEW_COUNT" => "2",
+      "SLIDES_MOBILE_VIEW_COUNT" => "1",
+      "SHOW_FORM_OPENER_BTN" => "Y",
+      "SHOW_FORM_OPENER_TEXT" => "Получить бесплатный аудит",
+      "FORM_ID" => "1"
+    ],
     $component
   ); ?>
   <!-- cases end -->
@@ -558,11 +599,8 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
   <!-- blog-preview -->
   <? $APPLICATION->IncludeComponent(
     "bitrix:news.list",
-    "slider-list",
-    array(
-      "CUSTOM_PARAMS" => [
-        "BASE_CARD_ANIMATE_BORDER" => "Y"
-      ],
+    "base-card-list",
+    [
       "ACTIVE_DATE_FORMAT" => "d.m.Y",
       "ADD_SECTIONS_CHAIN" => "N",
       "AJAX_MODE" => "N",
@@ -575,7 +613,7 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "CACHE_TIME" => "36000000",
       "CACHE_TYPE" => "A",
       "CHECK_DATES" => "Y",
-      "COMPONENT_TEMPLATE" => "slider-list",
+      "COMPONENT_TEMPLATE" => "base-card-list",
       "DETAIL_URL" => "",
       "DISPLAY_BOTTOM_PAGER" => "N",
       "DISPLAY_DATE" => "N",
@@ -583,10 +621,10 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "DISPLAY_PICTURE" => "N",
       "DISPLAY_PREVIEW_TEXT" => "Y",
       "DISPLAY_TOP_PAGER" => "N",
-      "FIELD_CODE" => array(
+      "FIELD_CODE" => [
         0 => "",
         1 => "",
-      ),
+      ],
       "FILTER_NAME" => "",
       "HIDE_LINK_WHEN_NO_DETAIL" => "N",
       "IBLOCK_ID" => "15",
@@ -605,10 +643,10 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "PARENT_SECTION" => "",
       "PARENT_SECTION_CODE" => "",
       "PREVIEW_TRUNCATE_LEN" => "",
-      "PROPERTY_CODE" => array(
+      "PROPERTY_CODE" => [
         0 => "",
         1 => "",
-      ),
+      ],
       "SET_BROWSER_TITLE" => "N",
       "SET_LAST_MODIFIED" => "N",
       "SET_META_DESCRIPTION" => "N",
@@ -620,8 +658,16 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "SORT_BY2" => "SORT",
       "SORT_ORDER1" => "DESC",
       "SORT_ORDER2" => "ASC",
-      "STRICT_SECTION_CHECK" => "N"
-    ),
+      "STRICT_SECTION_CHECK" => "N",
+      "BASE_CARD_ANIMATE_BORDER" => "Y",
+      "BASE_CARD_FILLED_BG" => "N",
+      "USE_SLIDER" => "Y",
+      "SLIDES_DESKTOP_VIEW_COUNT" => "3",
+      "SLIDES_TABLET_VIEW_COUNT" => "2",
+      "SLIDES_MOBILE_VIEW_COUNT" => "1",
+      "BASE_CARD_PICTURE_USE_DEFAULT" => "Y",
+      "SHOW_FORM_OPENER_BTN" => "N"
+    ],
     $component
   ); ?>
   <!-- blog-preview end -->
@@ -696,14 +742,11 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
   <!-- faq -->
 
   <!-- reviews-preview -->
-  <?
+  <?/*
   $APPLICATION->IncludeComponent(
     "bitrix:news.list",
     "reviews-slider",
     [
-      "CUSTOM_PARAMS" => [
-        "BASE_CARD_ANIMATE_BORDER" => "Y",
-      ],
       "ACTIVE_DATE_FORMAT" => "j F Y",
       "ADD_SECTIONS_CHAIN" => "N",
       "AJAX_MODE" => "N",
@@ -765,7 +808,7 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "COMPONENT_TEMPLATE" => "slider-list"
     ],
     false
-  ); ?>
+  ); */ ?>
   <!-- reviews-preview -->
 
   <!-- callback -->
@@ -795,7 +838,6 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
             array('MODE' => 'html', 'NAME' => 'номер телефона', 'SHOW_BORDER' => true)
           );
           ?>
-
 
           <? $APPLICATION->IncludeComponent(
             "bitrix:news.list",
@@ -897,9 +939,7 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
 
     </div>
   </section>
-
   <!-- callback -->
-
 
 <? else: ?>
   <section class="site-preview">

@@ -3,8 +3,17 @@ $this->setFrameMode(true);
 ?>
 
 <? if ($arResult): ?>
-  <div class="base-card<?= $arParams["ANIMATE_BORDER"] === "Y" ? ' animate-border' : '' ?><?= $arParams["FILLED_BG"] === "Y" ? ' --filled-bg' : '' ?>">
-    <img src="<?= $arResult["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="290" height="160">
+  <div class="base-card<?= $arParams["BASE_CARD_ANIMATE_BORDER"] === "Y" ? ' --animate-border' : '' ?><?= $arParams["BASE_CARD_FILLED_BG"] === "Y" ? ' --filled-bg' : '' ?>">
+    <? if ($arResult["PREVIEW_PICTURE"]["SRC"]): ?>
+      <img src="<?= $arResult["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arResult["NAME"] ?>" width="290" height="160">
+    <? elseif ($arParams["BASE_CARD_PICTURE_USE_DEFAULT"] === "Y"):
+      $APPLICATION->IncludeFile(
+        SITE_TEMPLATE_PATH . '/include/no-image.php',
+        array(),
+        array('MODE' => 'html', 'NAME' => 'изображение-заглушку', 'SHOW_BORDER' => true)
+      );
+    ?>
+    <? endif; ?>
 
     <? if ($arResult["DISPLAY_ACTIVE_FROM"] || $arResult["PROPERTIES"]["READING_TIME"]["VALUE"]): ?>
       <div class="base-card__note">

@@ -20,7 +20,7 @@ $this->setFrameMode(true);
 
       <div class="performance-container">
         <div class="performance">
-          <div class="performance__image-wrapper animate-border">
+          <div class="performance__image-wrapper --animate-border">
             <img src="<?= $bgImage ?>" alt="Изображение для фона" width="600" height="400">
           </div>
           <div class="performance__content-wrapper">
@@ -30,7 +30,7 @@ $this->setFrameMode(true);
                 $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 
               ?>
-                <div class="performance__item animate-border" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
+                <div class="performance__item --animate-border" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
                   <div class="performance__item-header">
                     <? if ($arItem["PREVIEW_PICTURE"]): ?>
                       <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" alt="<?= $arItem["NAME"] ?>" width="36" height="36">

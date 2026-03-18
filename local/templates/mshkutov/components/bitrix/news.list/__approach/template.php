@@ -84,7 +84,8 @@ $this->setFrameMode(true);
                   "USE_PERMISSIONS" => "N",
                   "USE_SHARE" => "N"
                 ),
-                $component
+                $component,
+                array("HIDE_ICONS" => $index > 0 ?? "Y")
               ); ?>
             </div>
           <? endforeach; ?>

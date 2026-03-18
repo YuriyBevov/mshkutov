@@ -1,21 +1,6 @@
 .section {
 	padding: clamp(20px, 6vw, 55px) 0;
 
-	// &.bg-sphere {
-	// 	background-image: url("/local/templates/mshkutov/public/sphere-bg.png");
-	// 	background-size: 100%;
-	// 	background-repeat: no-repeat;
-	// 	background-position: bottom;
-
-	// 	&--left {
-	// 		background-position: 50% 50%;
-	// 	}
-
-	// 	&--right {
-	// 		background-position: -50% 50%;
-	// 	}
-	// }
-
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -26,30 +11,69 @@
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
-		// outline: 1px solid red;
 
 		& * {
 			margin: 0;
 		}
 
-		&-wrapper {
+		&-title {
+			font-size: clamp(30px, 4vw, 48px);
+			font-weight: 600;
+			color: var(--white);
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: auto 120px;
+			gap: 24px;
+
+			&__item {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+			}
+		}
+
+		.swiper-navigation-container {
 			display: flex;
 			align-items: center;
-			gap: var(--base-gap);
+			gap: 16px;
+
+			.swiper-btn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				width: 40px;
+				height: auto;
+				aspect-ratio: 1/1;
+
+				border-radius: 50%;
+				border: 1px solid var(--white);
+				cursor: pointer;
+
+				& > svg {
+					width: 12px;
+					height: auto;
+					fill: var(--white);
+					object-fit: contain;
+				}
+
+				&-prev {
+					transform: rotate(180deg);
+				}
+			}
+
+			.swiper-button {
+				&-lock {
+					visibility: hidden;
+				}
+
+				&-disabled {
+					opacity: 0.4;
+					pointer-events: none;
+				}
+			}
 		}
 	}
-
-	&__title {
-		font-size: clamp(30px, 4vw, 48px);
-		font-weight: 600;
-		color: var(--white);
-	}
-
-	&__desc {
-		font-family: var(--secondary-font);
-		width: 100%;
-		max-width: 600px;
-	}
-
-	// outline: 1px solid red;
 }
