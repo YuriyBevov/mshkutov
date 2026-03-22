@@ -3,7 +3,7 @@ $this->setFrameMode(true);
 ?>
 
 <? if ($arResult): ?>
-  <div class="review-card<?= $arParams["ANIMATE_BORDER"] === "Y" ? ' animate-border' : '' ?>">
+  <div class="review-card --animate-border<?= $arParams["ANIMATE_BORDER"] === "Y" ? ' --animate-border' : '' ?>">
     <div class="review-card__rate">
       <? for ($i = 0; $i < 5; $i++): ?>
         <svg width='16' height='16' role='img' aria-hidden='true' focusable='false'>

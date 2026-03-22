@@ -1,0 +1,47 @@
+@use "@scss/base/container-queries" as *;
+
+.about-preview {
+	container: about-preview / inline-size;
+
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--base-gap);
+
+		padding: clamp(30px, 3.2vw, 60px) clamp(20px, 3.2vw, 70px);
+		border-radius: clamp(20px, 3.2vw, 45px);
+		background-color: rgba(12, 13, 37, 0.6);
+
+		&::before {
+			border-radius: clamp(20px, 3.2vw, 45px);
+		}
+
+		@include container-up("about-preview", 620px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.title-sm {
+		margin-bottom: 12px;
+	}
+
+	.section__title {
+		font-family: var(--primary-font);
+		font-size: clamp(24px, 3.6vw, 48px);
+		margin: 0;
+		margin-bottom: 16px;
+
+		i {
+			font-size: 80%;
+		}
+	}
+
+	.grid__item {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.main-link {
+		margin-top: auto;
+	}
+}

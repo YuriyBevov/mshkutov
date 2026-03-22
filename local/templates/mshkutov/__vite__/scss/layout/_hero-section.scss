@@ -1,0 +1,68 @@
+@use "@scss/base/container-queries" as *;
+
+.hero {
+	padding: clamp(20px, 6vw, 55px) 0;
+	container: hero / inline-size;
+	background-image: url("../assets/images/hero-bg.png");
+	background-size: 100%;
+	background-position: top right;
+	background-repeat: no-repeat;
+
+	@media (min-width: 960px) {
+		background-size: 65%;
+	}
+
+	.label {
+		text-transform: uppercase;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 32px;
+		align-items: end;
+		min-height: 460px;
+
+		@include container-up("hero", 960px) {
+			grid-template-columns: auto 440px;
+		}
+
+		&-item {
+			height: 100%;
+
+			&--content {
+				display: flex;
+				flex-direction: column;
+				gap: clamp(24px, 3vw, 32px);
+				max-height: fit-content;
+
+				.text {
+					max-width: 530px;
+				}
+			}
+
+			&--picture-wrapper {
+				overflow: visible;
+				max-width: 360px;
+				height: 420px;
+				width: 100%;
+				margin: 0 auto;
+				margin-top: 80px;
+
+				@include container-up("hero", 960px) {
+					margin: 0 32px;
+				}
+
+				img {
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					width: 100%;
+					height: 520px;
+					object-fit: cover;
+					object-position: bottom;
+				}
+			}
+		}
+	}
+}

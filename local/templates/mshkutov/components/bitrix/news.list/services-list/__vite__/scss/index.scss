@@ -1,0 +1,63 @@
+@use "@scss/base/container-queries" as *;
+.services-list {
+	&-container {
+		container: service-list / inline-size;
+	}
+
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 32px;
+
+	@include container-up("service-list", 620px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include container-up("service-list", 960px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.service-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+	height: 100%;
+
+	&-container {
+	}
+
+	&__title {
+		font-size: clamp(20px, 2.4vw, 28px);
+		font-weight: 600;
+		text-align: center;
+	}
+
+	&__price {
+		font-size: clamp(22px, 3.4vw, 36px);
+		font-weight: 600;
+		text-align: center;
+		color: var(--primary);
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		margin-bottom: 16px;
+
+		li {
+			text-align: center;
+			padding: 16px 0;
+			border-top: 1px solid #384479;
+			&:last-child {
+				border-bottom: 1px solid #384479;
+			}
+		}
+	}
+
+	.main-btn {
+		margin-top: auto;
+	}
+}

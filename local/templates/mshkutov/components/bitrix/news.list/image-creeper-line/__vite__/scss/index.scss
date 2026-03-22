@@ -1,0 +1,26 @@
+.crawl-line {
+	.container {
+		gap: 0 !important;
+	}
+	.swiper {
+		.swiper-slide {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: fit-content;
+			height: auto;
+
+			img {
+				width: auto;
+				height: auto;
+				max-height: 60px;
+				object-fit: contain;
+			}
+		}
+	}
+
+	.title-sm {
+		padding-top: 24px;
+	}
+}

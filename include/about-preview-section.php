@@ -1,13 +1,12 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetAdditionalCSS("/include/about-preview/about-preview.css");
 ?>
 
 <section class="section about-preview">
   <div class="container">
-    <div class="grid animate-border">
+    <div class="grid --animate-border">
       <div class="grid__item">
-        <h2 class="strong-text">Обо мне</h2>
+        <h2 class="title-sm">Обо мне</h2>
         <h3 class="section__title">Шкутов Михаил <br><i>разработчик</i></h3>
       </div>
       <div class="grid__item">

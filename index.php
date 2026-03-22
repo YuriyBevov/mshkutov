@@ -4,19 +4,21 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
 ?>
 
 <? if ($USER->isAdmin()): ?>
-  <?/*
-  $APPLICATION->IncludeFile(
-    SITE_DIR . 'include/about-preview/about-preview.php',
-    array(),
-    array('MODE' => 'html', 'NAME' => 'надпись над заголовком', 'SHOW_BORDER' => true)
-  );
-  */ ?>
 
-  <!-- sale preview -->
+  <!-- hero -->
   <?
-  $APPLICATION->IncludeComponent(
+  $APPLICATION->IncludeFile(
+    SITE_DIR . 'include/hero-section.php',
+    array(),
+    array('MODE' => 'html', 'NAME' => 'контент', 'SHOW_BORDER' => true)
+  );
+  ?>
+  <!-- hero -->
+
+  <!-- client -->
+  <? $APPLICATION->IncludeComponent(
     "bitrix:news.list",
-    "base-card-list",
+    "image-creeper-line",
     [
       "ACTIVE_DATE_FORMAT" => "d.m.Y",
       "ADD_SECTIONS_CHAIN" => "N",
@@ -30,10 +32,11 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "CACHE_TIME" => "36000000",
       "CACHE_TYPE" => "A",
       "CHECK_DATES" => "Y",
-      "DETAIL_URL" => "/sale/#ELEMENT_CODE#/",
+      "COMPONENT_TEMPLATE" => "image-creeper-line",
+      "DETAIL_URL" => "",
       "DISPLAY_BOTTOM_PAGER" => "N",
       "DISPLAY_DATE" => "N",
-      "DISPLAY_NAME" => "N",
+      "DISPLAY_NAME" => "Y",
       "DISPLAY_PICTURE" => "N",
       "DISPLAY_PREVIEW_TEXT" => "Y",
       "DISPLAY_TOP_PAGER" => "N",
@@ -43,18 +46,18 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       ],
       "FILTER_NAME" => "",
       "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-      "IBLOCK_ID" => "14",
+      "IBLOCK_ID" => "5",
       "IBLOCK_TYPE" => "site_content",
       "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
       "INCLUDE_SUBSECTIONS" => "N",
       "MESSAGE_404" => "",
-      "NEWS_COUNT" => "20",
+      "NEWS_COUNT" => "",
       "PAGER_BASE_LINK_ENABLE" => "N",
       "PAGER_DESC_NUMBERING" => "N",
       "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
       "PAGER_SHOW_ALL" => "N",
       "PAGER_SHOW_ALWAYS" => "N",
-      "PAGER_TEMPLATE" => "lw-page-navigation",
+      "PAGER_TEMPLATE" => ".default",
       "PAGER_TITLE" => "Новости",
       "PARENT_SECTION" => "",
       "PARENT_SECTION_CODE" => "",
@@ -70,29 +73,121 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "SET_STATUS_404" => "N",
       "SET_TITLE" => "N",
       "SHOW_404" => "N",
-      "SORT_BY1" => "SORT",
+      "SORT_BY1" => "ACTIVE_FROM",
       "SORT_BY2" => "SORT",
       "SORT_ORDER1" => "DESC",
       "SORT_ORDER2" => "ASC",
       "STRICT_SECTION_CHECK" => "N",
-      "COMPONENT_TEMPLATE" => "base-card-list",
       "BASE_CARD_ANIMATE_BORDER" => "Y",
-      "BASE_CARD_FILLED_BG" => "Y",
-      "SLIDER_CLASS" => "sale-preview-slider",
+      "BASE_CARD_FILLED_BG" => "N",
       "USE_SLIDER" => "Y",
-      "SLIDER_DESKTOP_VIEW" => "2",
-      "SLIDER_TABLET_VIEW" => "2",
-      "SLIDER_MOBILE_VIEW" => "auto",
-      "SLIDES_DESKTOP_VIEW_COUNT" => "2",
+      "SLIDES_DESKTOP_VIEW_COUNT" => "3",
       "SLIDES_TABLET_VIEW_COUNT" => "2",
       "SLIDES_MOBILE_VIEW_COUNT" => "1",
+      "SHOW_FORM_OPENER_BTN" => "Y",
+      "SHOW_FORM_OPENER_TEXT" => "Получить бесплатный аудит",
+      "FORM_ID" => "1",
       "BASE_CARD_PICTURE_USE_DEFAULT" => "N",
-      "BASE_CARD_USE_NUMERIC_TITLES" => "Y",
-      "SHOW_FORM_OPENER_BTN" => "N"
+      "BASE_CARD_USE_NUMERIC_TITLES" => "N",
+      "SLIDER_TYPE" => "1",
+      "SLIDER_SLIDE_MAX_WIDTH" => "360",
+      "SLIDER_SHOW_NEXT_SLIDE_PART" => "Y"
     ],
     $component
   ); ?>
-  <!-- sale preview -->
+  <!-- client -->
+
+  <!-- about -->
+  <?
+  $APPLICATION->IncludeFile(
+    SITE_DIR . 'include/about-preview-section.php',
+    array(),
+    array('MODE' => 'html', 'NAME' => 'контент', 'SHOW_BORDER' => true)
+  );
+  ?>
+  <!-- about -->
+
+  <!-- cases -->
+  <? $APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "base-card-list",
+    [
+      "ACTIVE_DATE_FORMAT" => "d.m.Y",
+      "ADD_SECTIONS_CHAIN" => "N",
+      "AJAX_MODE" => "N",
+      "AJAX_OPTION_ADDITIONAL" => "",
+      "AJAX_OPTION_HISTORY" => "N",
+      "AJAX_OPTION_JUMP" => "N",
+      "AJAX_OPTION_STYLE" => "Y",
+      "CACHE_FILTER" => "N",
+      "CACHE_GROUPS" => "Y",
+      "CACHE_TIME" => "36000000",
+      "CACHE_TYPE" => "A",
+      "CHECK_DATES" => "Y",
+      "COMPONENT_TEMPLATE" => "base-card-list",
+      "DETAIL_URL" => "",
+      "DISPLAY_BOTTOM_PAGER" => "N",
+      "DISPLAY_DATE" => "N",
+      "DISPLAY_NAME" => "Y",
+      "DISPLAY_PICTURE" => "N",
+      "DISPLAY_PREVIEW_TEXT" => "Y",
+      "DISPLAY_TOP_PAGER" => "N",
+      "FIELD_CODE" => [
+        0 => "",
+        1 => "",
+      ],
+      "FILTER_NAME" => "",
+      "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+      "IBLOCK_ID" => "6",
+      "IBLOCK_TYPE" => "site_content",
+      "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+      "INCLUDE_SUBSECTIONS" => "N",
+      "MESSAGE_404" => "",
+      "NEWS_COUNT" => "",
+      "PAGER_BASE_LINK_ENABLE" => "N",
+      "PAGER_DESC_NUMBERING" => "N",
+      "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+      "PAGER_SHOW_ALL" => "N",
+      "PAGER_SHOW_ALWAYS" => "N",
+      "PAGER_TEMPLATE" => ".default",
+      "PAGER_TITLE" => "Новости",
+      "PARENT_SECTION" => "",
+      "PARENT_SECTION_CODE" => "",
+      "PREVIEW_TRUNCATE_LEN" => "",
+      "PROPERTY_CODE" => [
+        0 => "",
+        1 => "",
+      ],
+      "SET_BROWSER_TITLE" => "N",
+      "SET_LAST_MODIFIED" => "N",
+      "SET_META_DESCRIPTION" => "N",
+      "SET_META_KEYWORDS" => "N",
+      "SET_STATUS_404" => "N",
+      "SET_TITLE" => "N",
+      "SHOW_404" => "N",
+      "SORT_BY1" => "ACTIVE_FROM",
+      "SORT_BY2" => "SORT",
+      "SORT_ORDER1" => "DESC",
+      "SORT_ORDER2" => "ASC",
+      "STRICT_SECTION_CHECK" => "N",
+      "BASE_CARD_ANIMATE_BORDER" => "Y",
+      "BASE_CARD_FILLED_BG" => "N",
+      "USE_SLIDER" => "Y",
+      "SLIDES_DESKTOP_VIEW_COUNT" => "3",
+      "SLIDES_TABLET_VIEW_COUNT" => "2",
+      "SLIDES_MOBILE_VIEW_COUNT" => "1",
+      "SHOW_FORM_OPENER_BTN" => "Y",
+      "SHOW_FORM_OPENER_TEXT" => "Получить бесплатный аудит",
+      "FORM_ID" => "1",
+      "BASE_CARD_PICTURE_USE_DEFAULT" => "N",
+      "BASE_CARD_USE_NUMERIC_TITLES" => "N",
+      "SLIDER_TYPE" => "1",
+      "SLIDER_SLIDE_MAX_WIDTH" => "360",
+      "SLIDER_SHOW_NEXT_SLIDE_PART" => "Y"
+    ],
+    $component
+  ); ?>
+  <!-- cases end -->
 
   <!-- workflow -->
   <? $APPLICATION->IncludeComponent(
@@ -237,81 +332,6 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
   ); ?>
   <!-- areas end -->
 
-  <!-- approach -->
-  <? $APPLICATION->IncludeComponent(
-    "bitrix:news.list",
-    "base-card-list",
-    [
-      "ACTIVE_DATE_FORMAT" => "d.m.Y",
-      "ADD_SECTIONS_CHAIN" => "N",
-      "AJAX_MODE" => "N",
-      "AJAX_OPTION_ADDITIONAL" => "",
-      "AJAX_OPTION_HISTORY" => "N",
-      "AJAX_OPTION_JUMP" => "N",
-      "AJAX_OPTION_STYLE" => "Y",
-      "CACHE_FILTER" => "N",
-      "CACHE_GROUPS" => "Y",
-      "CACHE_TIME" => "36000000",
-      "CACHE_TYPE" => "A",
-      "CHECK_DATES" => "Y",
-      "COMPONENT_TEMPLATE" => "base-card-list",
-      "DETAIL_URL" => "",
-      "DISPLAY_BOTTOM_PAGER" => "N",
-      "DISPLAY_DATE" => "N",
-      "DISPLAY_NAME" => "Y",
-      "DISPLAY_PICTURE" => "N",
-      "DISPLAY_PREVIEW_TEXT" => "Y",
-      "DISPLAY_TOP_PAGER" => "N",
-      "FIELD_CODE" => [
-        0 => "",
-        1 => "",
-      ],
-      "FILTER_NAME" => "",
-      "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-      "IBLOCK_ID" => "11",
-      "IBLOCK_TYPE" => "site_content",
-      "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-      "INCLUDE_SUBSECTIONS" => "N",
-      "MESSAGE_404" => "",
-      "NEWS_COUNT" => "",
-      "PAGER_BASE_LINK_ENABLE" => "N",
-      "PAGER_DESC_NUMBERING" => "N",
-      "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-      "PAGER_SHOW_ALL" => "N",
-      "PAGER_SHOW_ALWAYS" => "N",
-      "PAGER_TEMPLATE" => ".default",
-      "PAGER_TITLE" => "Новости",
-      "PARENT_SECTION" => "",
-      "PARENT_SECTION_CODE" => "",
-      "PREVIEW_TRUNCATE_LEN" => "",
-      "PROPERTY_CODE" => [
-        0 => "",
-        1 => "",
-      ],
-      "SET_BROWSER_TITLE" => "N",
-      "SET_LAST_MODIFIED" => "N",
-      "SET_META_DESCRIPTION" => "N",
-      "SET_META_KEYWORDS" => "N",
-      "SET_STATUS_404" => "N",
-      "SET_TITLE" => "N",
-      "SHOW_404" => "N",
-      "SORT_BY1" => "ACTIVE_FROM",
-      "SORT_BY2" => "SORT",
-      "SORT_ORDER1" => "DESC",
-      "SORT_ORDER2" => "ASC",
-      "STRICT_SECTION_CHECK" => "N",
-      "BASE_CARD_ANIMATE_BORDER" => "N",
-      "BASE_CARD_FILLED_BG" => "N",
-      "USE_SLIDER" => "N",
-      "BASE_CARD_PICTURE_USE_DEFAULT" => "N",
-      "BASE_CARD_USE_NUMERIC_TITLES" => "N",
-      "GRID_DESKTOP_VIEW_COUNT" => "4",
-      "SHOW_FORM_OPENER_BTN" => "N"
-    ],
-    false
-  );  ?>
-  <!-- approach end -->
-
   <!-- performance -->
   <? $APPLICATION->IncludeComponent(
     "bitrix:news.list",
@@ -448,6 +468,162 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
   );  ?>
   <!-- features end -->
 
+  <!-- services-preview -->
+  <? $APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "base-card-list",
+    [
+      "ACTIVE_DATE_FORMAT" => "d.m.Y",
+      "ADD_SECTIONS_CHAIN" => "N",
+      "AJAX_MODE" => "N",
+      "AJAX_OPTION_ADDITIONAL" => "",
+      "AJAX_OPTION_HISTORY" => "N",
+      "AJAX_OPTION_JUMP" => "N",
+      "AJAX_OPTION_STYLE" => "Y",
+      "CACHE_FILTER" => "N",
+      "CACHE_GROUPS" => "Y",
+      "CACHE_TIME" => "36000000",
+      "CACHE_TYPE" => "A",
+      "CHECK_DATES" => "Y",
+      "COMPONENT_TEMPLATE" => "base-card-list",
+      "DETAIL_URL" => "",
+      "DISPLAY_BOTTOM_PAGER" => "N",
+      "DISPLAY_DATE" => "N",
+      "DISPLAY_NAME" => "Y",
+      "DISPLAY_PICTURE" => "N",
+      "DISPLAY_PREVIEW_TEXT" => "Y",
+      "DISPLAY_TOP_PAGER" => "N",
+      "FIELD_CODE" => [
+        0 => "",
+        1 => "",
+      ],
+      "FILTER_NAME" => "",
+      "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+      "IBLOCK_ID" => "11",
+      "IBLOCK_TYPE" => "site_content",
+      "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+      "INCLUDE_SUBSECTIONS" => "N",
+      "MESSAGE_404" => "",
+      "NEWS_COUNT" => "",
+      "PAGER_BASE_LINK_ENABLE" => "N",
+      "PAGER_DESC_NUMBERING" => "N",
+      "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+      "PAGER_SHOW_ALL" => "N",
+      "PAGER_SHOW_ALWAYS" => "N",
+      "PAGER_TEMPLATE" => ".default",
+      "PAGER_TITLE" => "Новости",
+      "PARENT_SECTION" => "",
+      "PARENT_SECTION_CODE" => "",
+      "PREVIEW_TRUNCATE_LEN" => "",
+      "PROPERTY_CODE" => [
+        0 => "",
+        1 => "",
+      ],
+      "SET_BROWSER_TITLE" => "N",
+      "SET_LAST_MODIFIED" => "N",
+      "SET_META_DESCRIPTION" => "N",
+      "SET_META_KEYWORDS" => "N",
+      "SET_STATUS_404" => "N",
+      "SET_TITLE" => "N",
+      "SHOW_404" => "N",
+      "SORT_BY1" => "ACTIVE_FROM",
+      "SORT_BY2" => "SORT",
+      "SORT_ORDER1" => "DESC",
+      "SORT_ORDER2" => "ASC",
+      "STRICT_SECTION_CHECK" => "N",
+      "BASE_CARD_ANIMATE_BORDER" => "N",
+      "BASE_CARD_FILLED_BG" => "N",
+      "USE_SLIDER" => "N",
+      "BASE_CARD_PICTURE_USE_DEFAULT" => "N",
+      "BASE_CARD_USE_NUMERIC_TITLES" => "N",
+      "GRID_DESKTOP_VIEW_COUNT" => "4",
+      "SHOW_FORM_OPENER_BTN" => "N",
+      "SLIDES_DESKTOP_VIEW_COUNT" => "1",
+      "SLIDES_TABLET_VIEW_COUNT" => "2",
+      "SLIDES_MOBILE_VIEW_COUNT" => "1"
+    ],
+    false
+  );  ?>
+  <!-- services-preview -->
+
+  <!-- approach -->
+  <? $APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "base-card-list",
+    [
+      "ACTIVE_DATE_FORMAT" => "d.m.Y",
+      "ADD_SECTIONS_CHAIN" => "N",
+      "AJAX_MODE" => "N",
+      "AJAX_OPTION_ADDITIONAL" => "",
+      "AJAX_OPTION_HISTORY" => "N",
+      "AJAX_OPTION_JUMP" => "N",
+      "AJAX_OPTION_STYLE" => "Y",
+      "CACHE_FILTER" => "N",
+      "CACHE_GROUPS" => "Y",
+      "CACHE_TIME" => "36000000",
+      "CACHE_TYPE" => "A",
+      "CHECK_DATES" => "Y",
+      "COMPONENT_TEMPLATE" => "base-card-list",
+      "DETAIL_URL" => "",
+      "DISPLAY_BOTTOM_PAGER" => "N",
+      "DISPLAY_DATE" => "N",
+      "DISPLAY_NAME" => "Y",
+      "DISPLAY_PICTURE" => "N",
+      "DISPLAY_PREVIEW_TEXT" => "Y",
+      "DISPLAY_TOP_PAGER" => "N",
+      "FIELD_CODE" => [
+        0 => "",
+        1 => "",
+      ],
+      "FILTER_NAME" => "",
+      "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+      "IBLOCK_ID" => "11",
+      "IBLOCK_TYPE" => "site_content",
+      "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+      "INCLUDE_SUBSECTIONS" => "N",
+      "MESSAGE_404" => "",
+      "NEWS_COUNT" => "",
+      "PAGER_BASE_LINK_ENABLE" => "N",
+      "PAGER_DESC_NUMBERING" => "N",
+      "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+      "PAGER_SHOW_ALL" => "N",
+      "PAGER_SHOW_ALWAYS" => "N",
+      "PAGER_TEMPLATE" => ".default",
+      "PAGER_TITLE" => "Новости",
+      "PARENT_SECTION" => "",
+      "PARENT_SECTION_CODE" => "",
+      "PREVIEW_TRUNCATE_LEN" => "",
+      "PROPERTY_CODE" => [
+        0 => "",
+        1 => "",
+      ],
+      "SET_BROWSER_TITLE" => "N",
+      "SET_LAST_MODIFIED" => "N",
+      "SET_META_DESCRIPTION" => "N",
+      "SET_META_KEYWORDS" => "N",
+      "SET_STATUS_404" => "N",
+      "SET_TITLE" => "N",
+      "SHOW_404" => "N",
+      "SORT_BY1" => "ACTIVE_FROM",
+      "SORT_BY2" => "SORT",
+      "SORT_ORDER1" => "DESC",
+      "SORT_ORDER2" => "ASC",
+      "STRICT_SECTION_CHECK" => "N",
+      "BASE_CARD_ANIMATE_BORDER" => "N",
+      "BASE_CARD_FILLED_BG" => "N",
+      "USE_SLIDER" => "N",
+      "BASE_CARD_PICTURE_USE_DEFAULT" => "N",
+      "BASE_CARD_USE_NUMERIC_TITLES" => "N",
+      "GRID_DESKTOP_VIEW_COUNT" => "4",
+      "SHOW_FORM_OPENER_BTN" => "N",
+      "SLIDES_DESKTOP_VIEW_COUNT" => "1",
+      "SLIDES_TABLET_VIEW_COUNT" => "2",
+      "SLIDES_MOBILE_VIEW_COUNT" => "1"
+    ],
+    false
+  );  ?>
+  <!-- approach end -->
+
   <!-- stack -->
   <? $APPLICATION->IncludeComponent(
     "bitrix:news.list",
@@ -519,38 +695,38 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
   ); ?>
   <!-- stack end -->
 
-  <!-- cases -->
-  <? $APPLICATION->IncludeComponent(
+  <!-- reviews-preview -->
+  <?
+  $APPLICATION->IncludeComponent(
     "bitrix:news.list",
-    "base-card-list",
+    "reviews-slider",
     [
-      "ACTIVE_DATE_FORMAT" => "d.m.Y",
+      "ACTIVE_DATE_FORMAT" => "j F Y",
       "ADD_SECTIONS_CHAIN" => "N",
       "AJAX_MODE" => "N",
       "AJAX_OPTION_ADDITIONAL" => "",
       "AJAX_OPTION_HISTORY" => "N",
       "AJAX_OPTION_JUMP" => "N",
-      "AJAX_OPTION_STYLE" => "Y",
+      "AJAX_OPTION_STYLE" => "N",
       "CACHE_FILTER" => "N",
-      "CACHE_GROUPS" => "Y",
+      "CACHE_GROUPS" => "N",
       "CACHE_TIME" => "36000000",
-      "CACHE_TYPE" => "A",
+      "CACHE_TYPE" => "Y",
       "CHECK_DATES" => "Y",
-      "COMPONENT_TEMPLATE" => "base-card-list",
       "DETAIL_URL" => "",
-      "DISPLAY_BOTTOM_PAGER" => "N",
+      "DISPLAY_BOTTOM_PAGER" => "Y",
       "DISPLAY_DATE" => "N",
-      "DISPLAY_NAME" => "Y",
+      "DISPLAY_NAME" => "N",
       "DISPLAY_PICTURE" => "N",
-      "DISPLAY_PREVIEW_TEXT" => "Y",
+      "DISPLAY_PREVIEW_TEXT" => "N",
       "DISPLAY_TOP_PAGER" => "N",
       "FIELD_CODE" => [
-        0 => "",
+        0 => "DATE_CREATE",
         1 => "",
       ],
       "FILTER_NAME" => "",
       "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-      "IBLOCK_ID" => "6",
+      "IBLOCK_ID" => "13",
       "IBLOCK_TYPE" => "site_content",
       "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
       "INCLUDE_SUBSECTIONS" => "N",
@@ -569,6 +745,7 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "PROPERTY_CODE" => [
         0 => "",
         1 => "",
+        2 => "",
       ],
       "SET_BROWSER_TITLE" => "N",
       "SET_LAST_MODIFIED" => "N",
@@ -582,19 +759,97 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "SORT_ORDER1" => "DESC",
       "SORT_ORDER2" => "ASC",
       "STRICT_SECTION_CHECK" => "N",
+      "COMPONENT_TEMPLATE" => "slider-list"
+    ],
+    false
+  );  ?>
+  <!-- reviews-preview -->
+
+  <!-- sale preview -->
+  <?
+  $APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "base-card-list",
+    [
+      "ACTIVE_DATE_FORMAT" => "d.m.Y",
+      "ADD_SECTIONS_CHAIN" => "N",
+      "AJAX_MODE" => "N",
+      "AJAX_OPTION_ADDITIONAL" => "",
+      "AJAX_OPTION_HISTORY" => "N",
+      "AJAX_OPTION_JUMP" => "N",
+      "AJAX_OPTION_STYLE" => "Y",
+      "CACHE_FILTER" => "N",
+      "CACHE_GROUPS" => "Y",
+      "CACHE_TIME" => "36000000",
+      "CACHE_TYPE" => "A",
+      "CHECK_DATES" => "Y",
+      "DETAIL_URL" => "/sale/#ELEMENT_CODE#/",
+      "DISPLAY_BOTTOM_PAGER" => "N",
+      "DISPLAY_DATE" => "N",
+      "DISPLAY_NAME" => "N",
+      "DISPLAY_PICTURE" => "N",
+      "DISPLAY_PREVIEW_TEXT" => "Y",
+      "DISPLAY_TOP_PAGER" => "N",
+      "FIELD_CODE" => [
+        0 => "",
+        1 => "",
+      ],
+      "FILTER_NAME" => "",
+      "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+      "IBLOCK_ID" => "14",
+      "IBLOCK_TYPE" => "site_content",
+      "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+      "INCLUDE_SUBSECTIONS" => "N",
+      "MESSAGE_404" => "",
+      "NEWS_COUNT" => "20",
+      "PAGER_BASE_LINK_ENABLE" => "N",
+      "PAGER_DESC_NUMBERING" => "N",
+      "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+      "PAGER_SHOW_ALL" => "N",
+      "PAGER_SHOW_ALWAYS" => "N",
+      "PAGER_TEMPLATE" => "lw-page-navigation",
+      "PAGER_TITLE" => "Новости",
+      "PARENT_SECTION" => "",
+      "PARENT_SECTION_CODE" => "",
+      "PREVIEW_TRUNCATE_LEN" => "",
+      "PROPERTY_CODE" => [
+        0 => "",
+        1 => "",
+      ],
+      "SET_BROWSER_TITLE" => "N",
+      "SET_LAST_MODIFIED" => "N",
+      "SET_META_DESCRIPTION" => "N",
+      "SET_META_KEYWORDS" => "N",
+      "SET_STATUS_404" => "N",
+      "SET_TITLE" => "N",
+      "SHOW_404" => "N",
+      "SORT_BY1" => "SORT",
+      "SORT_BY2" => "SORT",
+      "SORT_ORDER1" => "DESC",
+      "SORT_ORDER2" => "ASC",
+      "STRICT_SECTION_CHECK" => "N",
+      "COMPONENT_TEMPLATE" => "base-card-list",
       "BASE_CARD_ANIMATE_BORDER" => "Y",
-      "BASE_CARD_FILLED_BG" => "N",
+      "BASE_CARD_FILLED_BG" => "Y",
+      "SLIDER_CLASS" => "sale-preview-slider",
       "USE_SLIDER" => "Y",
-      "SLIDES_DESKTOP_VIEW_COUNT" => "3",
+      "SLIDER_DESKTOP_VIEW" => "2",
+      "SLIDER_TABLET_VIEW" => "2",
+      "SLIDER_MOBILE_VIEW" => "auto",
+      "SLIDES_DESKTOP_VIEW_COUNT" => "2",
       "SLIDES_TABLET_VIEW_COUNT" => "2",
       "SLIDES_MOBILE_VIEW_COUNT" => "1",
-      "SHOW_FORM_OPENER_BTN" => "Y",
-      "SHOW_FORM_OPENER_TEXT" => "Получить бесплатный аудит",
-      "FORM_ID" => "1"
+      "BASE_CARD_PICTURE_USE_DEFAULT" => "N",
+      "BASE_CARD_USE_NUMERIC_TITLES" => "N",
+      "SHOW_FORM_OPENER_BTN" => "N",
+      "GRID_DESKTOP_VIEW_COUNT" => "4",
+      "SLIDER_TYPE" => "1",
+      "SLIDER_SLIDE_MAX_WIDTH" => "640",
+      "SLIDER_SHOW_NEXT_SLIDE_PART" => "N"
     ],
     $component
   ); ?>
-  <!-- cases end -->
+  <!-- sale preview -->
 
   <!-- blog-preview -->
   <? $APPLICATION->IncludeComponent(
@@ -666,7 +921,9 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "SLIDES_TABLET_VIEW_COUNT" => "2",
       "SLIDES_MOBILE_VIEW_COUNT" => "1",
       "BASE_CARD_PICTURE_USE_DEFAULT" => "Y",
-      "SHOW_FORM_OPENER_BTN" => "N"
+      "SHOW_FORM_OPENER_BTN" => "N",
+      "BASE_CARD_USE_NUMERIC_TITLES" => "N",
+      "SLIDER_TYPE" => "2"
     ],
     $component
   ); ?>
@@ -740,76 +997,6 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
     $component
   ); ?>
   <!-- faq -->
-
-  <!-- reviews-preview -->
-  <?/*
-  $APPLICATION->IncludeComponent(
-    "bitrix:news.list",
-    "reviews-slider",
-    [
-      "ACTIVE_DATE_FORMAT" => "j F Y",
-      "ADD_SECTIONS_CHAIN" => "N",
-      "AJAX_MODE" => "N",
-      "AJAX_OPTION_ADDITIONAL" => "",
-      "AJAX_OPTION_HISTORY" => "N",
-      "AJAX_OPTION_JUMP" => "N",
-      "AJAX_OPTION_STYLE" => "N",
-      "CACHE_FILTER" => "N",
-      "CACHE_GROUPS" => "N",
-      "CACHE_TIME" => "36000000",
-      "CACHE_TYPE" => "Y",
-      "CHECK_DATES" => "Y",
-      "DETAIL_URL" => "",
-      "DISPLAY_BOTTOM_PAGER" => "Y",
-      "DISPLAY_DATE" => "N",
-      "DISPLAY_NAME" => "N",
-      "DISPLAY_PICTURE" => "N",
-      "DISPLAY_PREVIEW_TEXT" => "N",
-      "DISPLAY_TOP_PAGER" => "N",
-      "FIELD_CODE" => [
-        0 => "DATE_CREATE",
-        1 => "",
-      ],
-      "FILTER_NAME" => "",
-      "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-      "IBLOCK_ID" => "13",
-      "IBLOCK_TYPE" => "site_content",
-      "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-      "INCLUDE_SUBSECTIONS" => "N",
-      "MESSAGE_404" => "",
-      "NEWS_COUNT" => "",
-      "PAGER_BASE_LINK_ENABLE" => "N",
-      "PAGER_DESC_NUMBERING" => "N",
-      "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-      "PAGER_SHOW_ALL" => "N",
-      "PAGER_SHOW_ALWAYS" => "N",
-      "PAGER_TEMPLATE" => ".default",
-      "PAGER_TITLE" => "Новости",
-      "PARENT_SECTION" => "",
-      "PARENT_SECTION_CODE" => "",
-      "PREVIEW_TRUNCATE_LEN" => "",
-      "PROPERTY_CODE" => [
-        0 => "",
-        1 => "",
-        2 => "",
-      ],
-      "SET_BROWSER_TITLE" => "N",
-      "SET_LAST_MODIFIED" => "N",
-      "SET_META_DESCRIPTION" => "N",
-      "SET_META_KEYWORDS" => "N",
-      "SET_STATUS_404" => "N",
-      "SET_TITLE" => "N",
-      "SHOW_404" => "N",
-      "SORT_BY1" => "ACTIVE_FROM",
-      "SORT_BY2" => "SORT",
-      "SORT_ORDER1" => "DESC",
-      "SORT_ORDER2" => "ASC",
-      "STRICT_SECTION_CHECK" => "N",
-      "COMPONENT_TEMPLATE" => "slider-list"
-    ],
-    false
-  ); */ ?>
-  <!-- reviews-preview -->
 
   <!-- callback -->
   <section class="section contacts">
