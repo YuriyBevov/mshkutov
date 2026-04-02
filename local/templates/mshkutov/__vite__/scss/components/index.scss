@@ -1,7 +1,8 @@
 @use "./blockquotes";
 @use "./tables";
 @use "./textarea";
-@use "./main-input";
+@use "./main-controls";
+@use "./captcha-block";
 @use "./alert";
 @use "./main-btn";
 @use "./main-link";
@@ -12,3 +13,5 @@
 @use "./base-card";
 @use "./accordeon";
 @use "./label";
+@use "./bx-popup";
+@use "./ajax-popup";

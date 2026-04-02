@@ -1,4 +1,7 @@
+@use "@scss/base/container-queries" as *;
 .callback-form {
+	container: callback-form / inline-size;
+
 	form {
 		display: flex;
 		flex-direction: column;
@@ -8,6 +11,31 @@
 	&__header {
 		display: flex;
 		flex-direction: column;
-		gap: 24px;
+		gap: 16px;
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 16px;
+
+		.main-textarea-wrapper {
+			grid-column: -1/1;
+		}
+
+		@include container-up(callback-form, 400px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&__footer {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+
+		.main-btn {
+			max-width: 100%;
+			background-color: var(--dark);
+		}
 	}
 }

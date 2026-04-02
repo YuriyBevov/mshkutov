@@ -1,4 +1,8 @@
+@use "@scss/base/container-queries" as *;
+
 .header {
+	container: header / inline-size;
+
 	.worktime,
 	.logo {
 		margin-right: auto;
@@ -7,38 +11,61 @@
 	.worktime {
 		display: flex;
 		align-items: center;
+
 		gap: 6px;
 		svg {
 			fill: var(--white);
+		}
+
+		span {
+			display: flex;
+			flex-direction: column;
+		}
+
+		@include container-up(header, 960px) {
+			span {
+				flex-direction: row;
+			}
 		}
 	}
 
 	.contacts-row {
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+
 		gap: 3px;
 
 		* {
 			padding: 0 12px;
 		}
 
-		a:not(:last-child) {
-			position: relative;
-			&::after {
-				position: absolute;
-				top: 0;
-				right: -2px;
-				content: "";
-				width: 1px;
-				height: 100%;
-				background-color: rgba(245, 245, 245, 0.5);
+		@include container-up(header, 820px) {
+			flex-direction: row;
+			align-items: center;
+
+			a:not(:last-child) {
+				position: relative;
+				&::after {
+					position: absolute;
+					top: 0;
+					right: -2px;
+					content: "";
+					width: 1px;
+					height: 100%;
+					background-color: rgba(245, 245, 245, 0.5);
+				}
 			}
 		}
 	}
 
 	&__top {
+		display: none;
 		padding: 12px 0;
 		background-color: rgba(100, 101, 157, 0.18);
+
+		@include container-up(header, 640px) {
+			display: flex;
+		}
 	}
 
 	&__top .container,
@@ -52,7 +79,12 @@
 		padding: 20px 0;
 
 		.row-menu {
-			margin: 0 clamp(12px, 5vw, 150px);
+			display: none;
+			margin: 0 auto;
+
+			@include container-up(header, 1140px) {
+				display: flex;
+			}
 		}
 	}
 }

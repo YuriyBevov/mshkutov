@@ -32,6 +32,14 @@
 						</label>
 					</div>
 				<? endif; ?>
+
+				<? if ($arQuestion["STRUCTURE"][0]["FIELD_TYPE"] == "textarea"): ?>
+					<div class="main-textarea-wrapper <?= ($arResult["FORM_ERRORS"][$FIELD_SID] ? 'invalid-fld' : '') ?>">
+						<label>
+							<?= $arQuestion["HTML_CODE"] ?>
+						</label>
+					</div>
+				<? endif; ?>
 				<? if ($arQuestion["STRUCTURE"][0]["FIELD_TYPE"] == "hidden"): ?>
 					<?= $arQuestion["HTML_CODE"] ?>
 				<? endif; ?>
@@ -40,13 +48,12 @@
 
 		<div class="callback-form__footer">
 			<? if ($arResult["isUseCaptcha"] == "Y"): ?>
-				<div class="captcha-block <?= ($arResult["FORM_ERRORS"][0] ? 'invalid-fld' : '') ?>">
+				<div class="captcha-block-container">
 					<input type="hidden" name="captcha_sid" value="<?= htmlspecialcharsbx($arResult["CAPTCHACode"]); ?>" />
-					<div class="main-input-wrapper">
-						<input type="text" placeholder="Введите символы с картинки" name="captcha_word" size="30" maxlength="50" value="" class="inputtext" />
-					</div>
-					<div class="captcha-block__img-wrapper">
+
+					<div class="captcha-block <?= ($arResult["FORM_ERRORS"][0] ? 'invalid-fld' : '') ?>">
 						<img src="/bitrix/tools/captcha.php?captcha_sid=<?= htmlspecialcharsbx($arResult["CAPTCHACode"]); ?>" width="180" height="40" alt="" />
+						<input type="text" placeholder="Введите символы" name="captcha_word" size="30" maxlength="50" value="" class="inputtext" />
 					</div>
 				</div>
 			<? endif; ?>
@@ -66,12 +73,10 @@
 					$component
 				); */ ?>
 
-			<div class="main-input-wrapper">
-				<input
-					<?= (intval($arResult["F_RIGHT"]) < 10 ? "disabled=\"disabled\"" : ""); ?>
-					type="submit" name="web_form_submit"
-					value="<?= htmlspecialcharsbx(trim($arResult["arForm"]["BUTTON"]) == '' ? 'Отправить' : $arResult["arForm"]["BUTTON"]); ?>" />
-			</div>
+			<input class="main-btn"
+				<?= (intval($arResult["F_RIGHT"]) < 10 ? "disabled=\"disabled\"" : ""); ?>
+				type="submit" name="web_form_submit"
+				value="<?= htmlspecialcharsbx(trim($arResult["arForm"]["BUTTON"]) == '' ? 'Отправить' : $arResult["arForm"]["BUTTON"]); ?>" />
 		</div>
 	<? endif; ?>
 	<?= $arResult["FORM_FOOTER"] ?>

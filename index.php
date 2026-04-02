@@ -471,7 +471,7 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
   <!-- services-preview -->
   <? $APPLICATION->IncludeComponent(
     "bitrix:news.list",
-    "base-card-list",
+    "services-list",
     [
       "ACTIVE_DATE_FORMAT" => "d.m.Y",
       "ADD_SECTIONS_CHAIN" => "N",
@@ -485,7 +485,7 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "CACHE_TIME" => "36000000",
       "CACHE_TYPE" => "A",
       "CHECK_DATES" => "Y",
-      "COMPONENT_TEMPLATE" => "base-card-list",
+      "COMPONENT_TEMPLATE" => "services-list",
       "DETAIL_URL" => "",
       "DISPLAY_BOTTOM_PAGER" => "N",
       "DISPLAY_DATE" => "N",
@@ -499,7 +499,7 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       ],
       "FILTER_NAME" => "",
       "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-      "IBLOCK_ID" => "11",
+      "IBLOCK_ID" => "10",
       "IBLOCK_TYPE" => "site_content",
       "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
       "INCLUDE_SUBSECTIONS" => "N",
@@ -516,8 +516,9 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
       "PARENT_SECTION_CODE" => "",
       "PREVIEW_TRUNCATE_LEN" => "",
       "PROPERTY_CODE" => [
-        0 => "",
-        1 => "",
+        0 => "PRICE",
+        1 => "SERVICE_DESC",
+        2 => "",
       ],
       "SET_BROWSER_TITLE" => "N",
       "SET_LAST_MODIFIED" => "N",
@@ -999,17 +1000,14 @@ $APPLICATION->SetTitle("Шкутов Михаил - Разработка IT-ре
   <!-- faq -->
 
   <!-- callback -->
-  <section class="section contacts">
+  <section class="section contact-section">
     <div class="container">
       <div class="grid --filled-bg">
-        <div class="grid__item">
-          <h2>Контакты</h2>
-          <p>
-            <strong>
-              Шкутов Михаил<br>
-              <i>разработчик</i>
-            </strong>
-          </p>
+        <div class="grid__item grid__item--main">
+          <h2 class="title-sm">Контакты</h2>
+          <h3 class="section__title">Шкутов Михаил <br>
+            <i>независимый эксперт по Битрикс24 с практическим опытом внедрения в малом бизнесе.</i>
+          </h3>
 
           <?
           $APPLICATION->IncludeFile(
