@@ -134,6 +134,10 @@ $this->setFrameMode(true);
               <span><?= $arParams["SHOW_FORM_OPENER_TEXT"] ?></span>
             </button>
           <? endif; ?>
+
+          <? if ($arParams["DISPLAY_TOP_PAGER"] || $arParams["DISPLAY_BOTTOM_PAGER"]): ?>
+            <?= $arResult["NAV_STRING"] ?><br />
+          <? endif; ?>
         </div>
   </section>
 <? endif; ?>
